@@ -1,3 +1,26 @@
+## Implementation With Docker Using Provided Checkpoints
+[config](projects/configs/lanesegnet_r50_8x1_24e_olv2_subset_A.py) | [ckpt]
+
+Use the docker environment provided in the commits
+[docker](lanesegnet.Dockerfile) | [docker]
+
+## Dataset Downloading
+Follow the downloading process below:
+[From this website](https://github.com/OpenDriveLab/OpenLane-V2/tree/v2.1.0/data) 
+Download 
+Map Element Bucket and files through image_0 to image_8
+
+Directly place the .tar files to as following
+```
+data/OpenLane-V2
+├── .tar
+|   └── ...
+├── .tar
+|   └── ...
+├── .tar
+|   └── ...
+```
+To unzip the tar 
 > [!IMPORTANT]
 > 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
 
@@ -82,11 +105,6 @@ This repository can be used as a starting point for Mapless Driving track.
 - Python 3.8.x
 - NVIDIA GPU + CUDA 11.1
 - PyTorch 1.9.1
-## Implementation With Docker Using Provided Checkpoints
-[config](projects/configs/lanesegnet_r50_8x1_24e_olv2_subset_A.py) | [ckpt]
-
-Use the docker environment provided in the commits
-
 
 
 ## Installation
