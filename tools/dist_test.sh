@@ -6,7 +6,7 @@ timestamp=`date +"%y%m%d.%H%M%S"`
 WORK_DIR=work_dirs/lanesegnet
 CONFIG=projects/configs/lanesegnet_r50_8x1_24e_olv2_subset_A.py
 
-CHECKPOINT=${WORK_DIR}/latest.pth
+CHECKPOINT=${WORK_DIR}/lanesegnet_r50_8x1_24e_olv2_subset_A.pth
 
 GPUS=$1
 PORT=${PORT:-28510}
