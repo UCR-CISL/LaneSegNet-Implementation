@@ -20,7 +20,25 @@ data/OpenLane-V2
 ├── .tar
 |   └── ...
 ```
-To unzip the tar 
+To unzip the .tar replace the the file in the first part witht he path of the .tar file and replace the path for the after the line -C for the place you want the .tar file to be extracted
+```
+tar -xvf /home/orhun/Desktop/LaneSegNet_Project/OpenLane-V2/data/OpenLane-V2/OpenDriveLab___OpenLane-V2/raw/OpenLane-V2_subset_A_image_8.tar -C /home/orhun/Desktop/extracted_images
+```
+After extracting the necessary dataset to the place shown the file inside the LaneSegNet repository should look like this
+```
+data/OpenLane-V2
+├── train
+|   └── ...
+├── val
+|   └── ...
+├── test
+|   └── ...
+```
+Next is to preprocess the dataset with the following command
+```
+python ./tools/data_process.py
+```
+
 > [!IMPORTANT]
 > 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
 
