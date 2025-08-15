@@ -38,6 +38,46 @@ Next is to preprocess the dataset with the following command
 ```
 python ./tools/data_process.py
 ```
+## Building and Running the Docker
+Run this code according to your path files
+```
+docker build \
+  -f lanesegnet_dockerfile.Dockerfile \
+  -t lanesegnet:cu117-py384 \
+  --memory=24g \
+  --memory-swap=36g \
+  --shm-size=16g \
+  .
+```
+
+After building the docker run it with the following
+
+```
+docker run -it \
+  --gpus all \
+  --ipc=host \
+  --shm-size=16g \
+  --ulimit memlock=-1 \
+  --name lanesegnet_container \
+  lanesegnet:cu117-py384 \
+  /bin/bash
+
+```
+For running the inference of the checkpoint run the following the code inside the docker and have the checkpoint inside the following path
+work_dirs/lanesegnet/lanesegnet_r50_8x1_24e_olv2_subset_A.pth
+```
+./tools/dist_test.sh 1 \
+  projects/configs/lanesegnet_r50_8x1_24e_olv2_subset_A.py \
+  work_dirs/lanesegnet/lanesegnet_r50_8x1_24e_olv2_subset_A.pth
+```
+For visual results run the code inside the docker
+```
+./tools/dist_test.sh 1 \
+  projects/configs/lanesegnet_r50_8x1_24e_olv2_subset_A.py \
+  work_dirs/lanesegnet/lanesegnet_r50_8x1_24e_olv2_subset_A.pth \
+  --show \
+  --out-dir results
+```
 
 > [!IMPORTANT]
 > 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
